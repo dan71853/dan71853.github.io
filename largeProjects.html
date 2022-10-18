@@ -18,7 +18,7 @@
     <div class="sidebar">
 
         <a class="sidebar-links" href="#top">Jump to top</a><br>
-        <a class="sidebar-links" href="#joystick-maint"> Joystick</a><br>
+        <a class="sidebar-links" href="#joystick-main"> Joystick</a><br>
         <!-- <a class="sidebar-links" href="#HZD-Tallneck"> Tallneck robot</a><br> -->
     </div>
 
@@ -27,7 +27,7 @@
         <div class="body-middle">
             <a name="top"></a>
             <h1>My personal projects</h1>
-            Here are a collection of my personal projects.
+            Here are a collection of my larger projects.
 
             <a name="joystick-main"></a>
             <h2>Joystick</h2>
@@ -36,7 +36,51 @@
             The main idea is to create a HOSAS (dual joysticks) system with additional button boxes and have them
             mounted to my chair.
 
+            <h3>Initial Gimbal</h3>
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_Initial_Gimbal_1.jpg" alt="Joystick Initial Gimbal 1">
+                <img class="default-image-p" src="img/Joystick_Initial_Gimbal_2.jpg" alt="Joystick Initial Gimbal 2">
+            </div>
+            Initial gimbal prototype, using rubberbands for the intital tests but this will be upgraded to springs later
+            on.
+            <br><br>
 
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_Initial_Gimbal_3.jpg" alt="Joystick Initial Gimbal 3">
+                <img class="default-image-p" src="img/Joystick_Initial_Gimbal_4.jpg" alt="Joystick Initial Gimbal 4">
+            </div>
+            Added the sensors for the 3 axis. X and Y use hall effect sensors, there are magnets connected to the center
+            cross peice. The Z axis is just a potentiometer (pot). <br>
+            I then started designing the main body for the joystick. Using some designings I found online as a referance
+            I designed the first version. I used Slicer for Fusion 360 to cut the model up into segments that could be
+            cut out of cardboard. This was a fast and cheap way to see how the joystick would feel.
+
+            <h3>Test prints</h3>
+
+            I started making some test prints for the different componetnts, I wanted the joystick to have a trigger, 3
+            buttons and a mini joystick on the top. I wanted to make sure I got the indivudual components working before
+            I 3D printed the whole handel.
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_Trigger_Tests_1.jpg" alt="Joystick Trigger Tests 1">
+                <video class="default-image-p" controls="controls">
+                    <source src="img/Joystick_Trigger_Tests_2.mp4" alt="Joystick Trigger Tests 2">
+                </video>
+            </div>
+            I pulled apart an old xbox controller and removed the trigger. I had to design the casing to hold the
+            trigger and redesign the arm connecting the trigger to the pot. The video shows the output of the pot using
+            an Arduino. <br>
+            I was very happy with this, the spring created nice feedback and the pot had a large range.
+            <br><br>
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_Button_Tests_1.jpg" alt="Joystick_Button_Tests_1">
+                <img class="default-image-p" src="img/Joystick_Center_Tests_1.jpg" alt="Joystick_Center_Tests_1">
+            </div>
+            Next was testing the design and fit for the buttons and the centering mechanism.
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_mini_Joystick_1.jpg" alt="Joystick_mini_Joystick_1">
+                <img class="default-image-p" src="img/Joystick_mini_Joystick_2.jpg" alt="Joystick_mini_Joystick_2">
+            </div>
+            The mini joystich which i removed from the xbox controller, I cut the PCB out
         </div>
         <div class="body-side"></div>
     </div>
