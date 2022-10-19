@@ -81,7 +81,108 @@
                 <img class="default-image-p" src="img/Joystick_mini_Joystick_1.jpg" alt="Joystick_mini_Joystick_1">
                 <img class="default-image-p" src="img/Joystick_mini_Joystick_2.jpg" alt="Joystick_mini_Joystick_2">
             </div>
-            The mini joystick which i removed from the xbox controller, I cut the PCB out
+            The mini joystick which i removed from the xbox controller, I cut the PCB out form the xbox controller, this
+            gave me a nice square base that I could clamp the 3D printed joystick grip to. <br>
+            The traces on the PCB allowed me to easily connect wires.
+
+            <h3>Printing Joystick</h3>
+            I 3D printed one of the Joysticks, this took a couple of iterations but I eventually found a design that
+            worked.
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_PrintedV1_1.jpg" alt="Joystick_PrintedV1_1">
+                <img class="default-image-p" src="img/Joystick_PrintedV1_2.jpg" alt="Joystick_PrintedV1_2">
+            </div>
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_PrintedV1_3.jpg" alt="Joystick_PrintedV1_3">
+                <img class="default-image-p" src="img/Joystick_PrintedV1_4.jpg" alt="Joystick_PrintedV1_4">
+            </div>
+
+            <h3>Chair Mount</h3>
+            Over the summer break my dad helped me make a mount so the joysticks could be attached directly to my chair.
+            <br>
+            These are easily adjustable and can be removed quickly.
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_chair_mount_1.jpg" alt="Joystick_chair_mount_1">
+                <img class="default-image-p" src="img/Joystick_chair_mount_2.jpg" alt="Joystick_chair_mount_2">
+            </div>
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_chair_mount_3.jpg" alt="Joystick_chair_mount_3">
+                <img class="default-image-p" src="img/Joystick_chair_mount_4.jpg" alt="Joystick_chair_mount_4">
+            </div>
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_chair_mount_5.jpg" alt="Joystick_chair_mount_5">
+                <img class="default-image-p" src="img/Joystick_chair_mount_6.jpg" alt="Joystick_chair_mount_6">
+            </div>
+
+            <h3>New Gimbal</h3>
+            I wanted to redesign the gimbal system, I found an existing design <a
+                href="https://www.realrobots.net/hotas">here</a>. I modified the design a bit to work for my setup.
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_GimbalV2_1.jpg" alt="Joystick_GimbalV2_1">
+                <img class="default-image-p" src="img/Joystick_GimbalV2_2.jpg" alt="Joystick_GimbalV2_2">
+            </div>
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_GimbalV2_3.jpg" alt="Joystick_GimbalV2_3">
+                <img class="default-image-p" src="img/Joystick_GimbalV2_4.jpg" alt="Joystick_GimbalV2_4">
+            </div>
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_GimbalV2_5.jpg" alt="Joystick_GimbalV2_5">
+            </div>
+            I also tried using magnets to center the Z axis, how ever this was not very successful.
+
+            <h3>Button Box</h3>
+            I printed the enclosure for the button box, this also houses the ESP32 which is the brains for the right
+            stick.
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_Button_Boxes_1.jpg" alt="Joystick_Button_Boxes_1">
+                <img class="default-image-p" src="img/Joystick_Button_Boxes_2.jpg" alt="Joystick_Button_Boxes_2">
+            </div>
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_Button_Boxes_3.jpg" alt="Joystick_Button_Boxes_3">
+            </div>
+
+            <h3>More tests</h3>
+            I started doing some testing on imbedding a nut into a 3D print and testing an LCD screen and LED light
+            strip on a bread board.
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_Embed_Nut_1.jpg" alt="Joystick_Embed_Nut_1">
+                <img class="default-image-p" src="img/Joystick_Embed_Nut_2.jpg" alt="Joystick_Embed_Nut_2">
+            </div>
+            Here I paused the print at a specific height, placed the nut in and resumed the print. It took a bit of
+            tuning but I managed to seamlessly embed a nut. <br><br>
+
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_LCD_Test_1.jpg" alt="Joystick_LCD_Test_1">
+                <img class="default-image-p" src="img/Joystick_LCD_Test_2.jpg" alt="Joystick_LCD_Test_2">
+            </div>
+            <div style="text-align: center;">
+                <video class="default-image-p" controls="controls">
+                    <source src="img/Joystick_LCD_Test_3.mp4" alt="Joystick_LCD_Test_3">
+                </video>
+            </div>
+            The next test was getting the LCD and LED strip working. I salvaged the LCD of an old radio, it required a
+            bit of reverse engineering to map the inputs to the seven segment display outputs. I am controlling the LED
+            strip (and other LEDs in the
+            future) with an LED driver chip (MAX7219). It is normally used for 7 segment displays but can be programed
+            to word for any number of LEDs up to a max of 64. <br>
+            The LCD display needs 9 GPIO pins and the LED driver needs another 3 so I decided to use an arduino Micro to
+            control everything. <br>
+            The arduino is then controlled by an ESP32 which is connected to the PC and also reads the axis and button
+            inputs. <br>
+            The video shows the LED strip counting up in binary and the LCD display is displaying a random number. This
+            is all controlled by the ESP32 via the arduino.
+
+            <h3>Z Axis Clamp</h3>
+            I redesigned the Z axis centering mechanism, Springs and magnets did an ok job of pulling the stick to
+            roughly zero but it was never perfect. Increasing the dead-zone helped a bit but there was always some
+            drift. <br>
+            I decided to use a clamp design that I could manipulate with my pinky, this would allow free movement but
+            would also lock the axis when I needed.
+            <div style="text-align: center;">
+                <img class="default-image-p" src="img/Joystick_Clamp_1.jpg" alt="Joystick_Clamp_1">
+                <img class="default-image-p" src="img/Joystick_Clamp_2.jpg" alt="Joystick_Clamp_2">
+            </div>
+
         </div>
         <div class="body-side"></div>
     </div>
