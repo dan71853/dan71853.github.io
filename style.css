@@ -74,3 +74,8 @@ body {
     width: auto;
     max-width: 45%;
 }
+
+.default-image-l {
+    height: 350px;
+    width: auto;
+}
