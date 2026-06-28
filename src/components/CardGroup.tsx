@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import showMoreImg from "../assets/showMoreArrows.svg";
 
 interface page {
   page: () => {};
@@ -26,7 +27,7 @@ export const CardGroup = (props: cardGroupProps) => {
           if (i < (props.limit ?? 9999))
             return (
               <Link to={`/${props.path}/${k}`}>
-                <Card {...v} />
+                <Card {...v} grayScale={false} />
               </Link>
             );
         })}
@@ -37,6 +38,7 @@ export const CardGroup = (props: cardGroupProps) => {
               <Card
                 {...Object.entries(props.pages)[props.limit][1]}
                 title={"Show More"}
+                grayScale={true}
               />
             </Link>
           )}
@@ -45,10 +47,37 @@ export const CardGroup = (props: cardGroupProps) => {
   );
 };
 
-const Card = (props: page) => {
+interface cardProps extends page {
+  grayScale: boolean;
+}
+const Card = (props: cardProps) => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <img src={props.thumb} width={200} height={200} />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        style={{
+          filter: props.grayScale ? "grayscale(100%)" : "none",
+          position: "relative",
+        }}
+      >
+        <img
+          src={props.thumb}
+          width={window.innerWidth / 6}
+          height={window.innerHeight / 3}
+        />
+        {props.grayScale && (
+          <img
+            src={showMoreImg}
+            width={window.innerWidth / 6}
+            height={window.innerHeight / 3}
+            style={{ position: "absolute", left: "0px", top: "0px" }}
+          />
+        )}
+      </div>
       <br></br>
       {props.title}
     </div>
