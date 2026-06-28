@@ -4,12 +4,16 @@ import sharkOne from "../assets/SharkOne.png";
 
 export const NavBar = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div style={{ display: "flex", justifyContent: "left" }}>
       <Link to="/">
         <img src={sharkOne} />
       </Link>
       {Object.entries(pages).map(([groupName]) => {
-        return <Link to={`/${groupName}`}>{groupName}</Link>;
+        return (
+          <Link to={`/${groupName}`}>
+            <h2 style={{ margin: "1rem" }}>{groupName}</h2>
+          </Link>
+        );
       })}
     </div>
   );
