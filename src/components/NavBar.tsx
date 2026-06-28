@@ -8,7 +8,7 @@ export const NavBar = () => {
       <Link to="/">
         <img src={sharkOne} />
       </Link>
-      {Object.entries(pages).map(([groupName, group]) => {
+      {Object.entries(pages).map(([groupName]) => {
         return <Link to={`/${groupName}`}>{groupName}</Link>;
       })}
     </div>
