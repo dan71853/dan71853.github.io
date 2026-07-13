@@ -8,9 +8,9 @@ export const NavBar = () => {
       <Link to="/">
         <img src={sharkOne} />
       </Link>
-      {Object.entries(pages).map(([groupName]) => {
+      {Object.entries(pages).map(([groupName],i) => {
         return (
-          <Link to={`/${groupName}`}>
+          <Link to={`/${groupName}`} key={`navLink${i}`}>
             <h2 style={{ margin: "1rem" }}>{groupName}</h2>
           </Link>
         );
