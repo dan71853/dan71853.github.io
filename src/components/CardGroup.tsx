@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import showMoreImg from "../assets/showMoreArrows.svg";
+import { useMemo } from "react";
 
 interface page {
   page: () => {};
@@ -20,15 +21,18 @@ interface cardGroupProps {
 
 const cardWidth = `${100/6}%`
 
+const maxPriority = 9999;
 export const CardGroup = (props: cardGroupProps) => {
 
-
+  const sortedPages = useMemo(()=>{
+    return Object.entries(props.pages).sort((a,b)=> (a[1].priority??maxPriority) - (b[1].priority??maxPriority))
+  },[props.pages])
 
   return (
     <div >
       <h1 style={{ textAlign: "left"}}>{props.title}</h1>
       <div  style={{ display: "flex", flexWrap: "wrap",  }} className="CardGroupDiv">
-        {Object.entries(props.pages).map(([k, v], i) => {
+        {sortedPages.map(([k, v], i) => {
           if (i < (props.limit ?? 9999))
             return (
               <Link to={`/${props.path}/${k}`} key={`link${i}`} 
@@ -44,7 +48,7 @@ export const CardGroup = (props: cardGroupProps) => {
             );
         })}
         {props.limit !== undefined &&
-          Object.entries(props.pages).length > props.limit &&
+          sortedPages.length > props.limit &&
           !props.wrap && (
             <Link to={`/${props.path}`} style={{width:cardWidth, height:cardWidth}}>
               <Card
