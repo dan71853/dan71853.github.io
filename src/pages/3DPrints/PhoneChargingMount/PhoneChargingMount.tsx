@@ -1,11 +1,11 @@
-import img from "./thumbnail.jpg";
+import img from "./Thumbnail.jpg";
 
-import refA from "./phone_mount-ref-a.jpg";
-import refB from "./phone_mount-ref-b.jpg";
-import finalA from "./phone_mount-final-a.jpg";
-import finalB from "./phone_mount-final-b.jpg";
-import finalC from "./phone_mount-final-c.jpg";
-import finalD from "./phone_mount-final-d.jpg";
+import Img01 from "./Img-01.jpg";
+import Img02 from "./Img-02.jpg";
+import Img03 from "./Img-03.jpg";
+import Img04 from "./Img-04.jpg";
+import Img05 from "./Img-05.jpg";
+import Img06 from "./Img-06.jpg";
 
 export const page = () => {
   return (
@@ -19,22 +19,22 @@ export const page = () => {
     I found these 2 designs and combined them. 
 
     <figure >
-        <img src={refA} width={300}/>
-        <img src={refB} width={300}/>
+        <img src={Img01} width={300}/>
+        <img src={Img02} width={300}/>
         <figcaption>Reference images</figcaption>
     </figure>
 
     The final design had a slot for the charging cable, can hold headphones and has cute feet.
 
     <figure >
-        <img src={finalA} width={300}/>
-        <img src={finalB} width={300}/>
+        <img src={Img03} width={300}/>
+        <img src={Img04} width={300}/>
         <figcaption> Final design </figcaption>
     </figure>
 
    <figure >
-        <img src={finalC} width={300}/>
-        <img src={finalD} width={300}/>
+        <img src={Img05} width={300}/>
+        <img src={Img06} width={300}/>
         <figcaption> Holding headphones </figcaption>
     </figure>
 
