@@ -4,21 +4,34 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home";
 import { CardGroup } from "./components/CardGroup";
 import { NavBar } from "./components/NavBar";
+import { useMemo } from "react";
+import type { page, pageGroups } from "./types/types";
 
 function App() {
+
+  const sortedPages = useMemo(()=>{
+    return Object.entries(pages as pageGroups).filter((thingy)=>thingy).sort((a,b)=>(a[1].priority??0)- (b[1].priority??0))
+  },[pages])
+
   return (
     <>
       <HashRouter>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {Object.entries(pages).map(([groupName, group]) => {
+          {sortedPages.map(([groupName, group]) => {
+            const onlyPages = useMemo(()=>{
+              const all = {...group};
+              all["title"] = undefined;
+              all["priority"] = undefined;
+              return all as Record<string, page>
+            },[])
             return (
               <Route
                 path={`/${groupName}`}
                 element={
                   <CardGroup
-                    pages={group}
+                    pages={onlyPages}
                     title={groupName}
                     path={groupName}
                   ></CardGroup>
@@ -26,8 +39,15 @@ function App() {
               />
             );
           })}
-          {Object.entries(pages).map(([groupName, group]) => {
-            return Object.entries(group).map(([pageName, page]) => {
+          {sortedPages.map(([groupName, group]) => {
+            const onlyPages = useMemo(()=>{
+              const all = {...group};
+              all["title"] = undefined;
+              all["priority"] = undefined;
+              return all as Record<string, page>
+            },[])
+            return Object.entries(onlyPages).map(([pageName, page]) => {
+              if(page)
               return (
                 <Route
                   path={`/${groupName}/${pageName}`}

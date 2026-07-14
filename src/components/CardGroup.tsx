@@ -1,31 +1,17 @@
 import { Link } from "react-router-dom";
 import showMoreImg from "../assets/showMoreArrows.svg";
 import { useMemo } from "react";
+import type { cardGroupProps, cardProps} from "../types/types";
 
-interface page {
-  page: () => {};
-  thumb: string;
-  priority?: number;
-  title: string;
-}
-
-type pages = Record<string, page>;
-
-interface cardGroupProps {
-  pages: pages;
-  title: string;
-  path: string;
-  limit?: number;
-  wrap?: boolean;
-}
 
 const cardWidth = `${100/6}%`
 
 const maxPriority = 9999;
 export const CardGroup = (props: cardGroupProps) => {
-
   const sortedPages = useMemo(()=>{
-    return Object.entries(props.pages).sort((a,b)=> (a[1].priority??maxPriority) - (b[1].priority??maxPriority))
+    return Object.entries(props.pages).filter((page)=>page[1]).sort((a,b)=>{
+       return (a[1].priority??maxPriority) - (b[1].priority??maxPriority)
+      })
   },[props.pages])
 
   return (
@@ -63,13 +49,8 @@ export const CardGroup = (props: cardGroupProps) => {
   );
 };
 
-interface cardProps extends page {
-  grayScale: boolean;
-}
+
 const Card = (props: cardProps) => {
-
-
-
 
   return (
     <div
