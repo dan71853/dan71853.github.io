@@ -26,12 +26,19 @@ export const CardGroup = (props: cardGroupProps) => {
 
   return (
     <div >
-      <h1>{props.title}</h1>
+      <h1 style={{ textAlign: "left"}}>{props.title}</h1>
       <div  style={{ display: "flex", flexWrap: "wrap",  }} className="CardGroupDiv">
         {Object.entries(props.pages).map(([k, v], i) => {
           if (i < (props.limit ?? 9999))
             return (
-              <Link to={`/${props.path}/${k}`} key={`link${i}`} style={{width:cardWidth, height:cardWidth}}>
+              <Link to={`/${props.path}/${k}`} key={`link${i}`} 
+              style={{
+                width:cardWidth, 
+                height:cardWidth, 
+                color:"white", 
+                textDecoration:"none",
+                fontSize:"20px",
+                }}>
                 <Card {...v} grayScale={false} key={`card${i}`} />
               </Link>
             );
@@ -76,7 +83,7 @@ const Card = (props: cardProps) => {
       >
         <img
           src={props.thumb}
-          style={{width:"100%", height:"100%"}}
+          style={{width:"100%", height:"100%", borderRadius:"5px"}}
 
           
         />
