@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  #On PR to main
+  pull_request:
+    types: [opened]
+    branches: ['main']
+
+  workflow_dispatch:
+
+
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 26
+      - name: npm install
+        run: npm i
+      - name: build
+        run: npm run build
