@@ -1,6 +1,7 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
+  --text-hover:#174cc0;
   --bg: #fff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
@@ -34,6 +35,7 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
+    --text-hover:#4f75c8;
     --bg: #16171d;
     --border: #2e303a;
     --code-bg: #1f2028;
@@ -108,4 +110,28 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+
+.nav-bar-link{                
+  text-decoration:none;
+}
+
+.nav-bar-text{                
+  color:var(--text-h);
+  font-size:30px;
+  text-decoration:none;
+}
+.nav-bar-text:hover {
+  color:var(--text-hover);
+}
+
+
+.card-group-link{                
+  color:var(--text);
+  font-size:20px;
+  text-decoration:none;
+}
+.card-group-link:hover {
+  color:var(--text-hover);
 }

@@ -20,13 +20,15 @@ export const NavBar = () => {
           <Link
             to={`/${groupName}`}
             key={`navLink${i}`}
-            style={{ textDecoration: "none", alignContent:"center"}}
+            style={{  alignContent:"center"}}
+            className="nav-bar-link"
           >
             <h2
+            className="nav-bar-text"
               style={{
                 margin: "1rem",
-                color: "var(--text-h)",
-                fontSize: "26px",
+                // color: "var(--text-h)",
+                // fontSize: "26px",
               }}
             >
               {group.title ?? groupName}
