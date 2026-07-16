@@ -32,7 +32,7 @@ function App() {
                 element={
                   <CardGroup
                     pages={onlyPages}
-                    title={groupName}
+                     title={group.title??groupName}
                     path={groupName}
                   ></CardGroup>
                 }
