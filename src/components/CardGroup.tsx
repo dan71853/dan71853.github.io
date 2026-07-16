@@ -16,8 +16,8 @@ export const CardGroup = (props: cardGroupProps) => {
   }, [props.pages]);
 
   return (
-    <div>
-      <h1 style={{ textAlign: "left" }}>{props.title}</h1>
+    <div >
+      <Link className="category-title" to={`/${props.path}`} >{props.title}</Link>
       <div
         style={{ display: "flex", flexWrap: "wrap" }}
         className="CardGroupDiv"

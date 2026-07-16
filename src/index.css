@@ -135,3 +135,17 @@ code {
 .card-group-link:hover {
   color:var(--text-hover);
 }
+
+.category-title{
+  color:var(--text);
+  font-size: 56px;
+  font-weight: 500;
+  margin: 32px 0;
+  text-decoration:none;
+  display: block;
+  text-align: left;
+}
+
+.category-title:hover {
+  color:var(--text-hover);
+}
