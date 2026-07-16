@@ -25,7 +25,7 @@ export const CardGroup = (props: cardGroupProps) => {
               style={{
                 width:cardWidth, 
                 height:cardWidth, 
-                color:"white", 
+                color:"var(--text)", 
                 textDecoration:"none",
                 fontSize:"20px",
                 }}>
