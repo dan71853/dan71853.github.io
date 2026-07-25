@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import * as pages from "../pages/index";
 import sharkOne from "../assets/SharkOne.png";
-import gitHubIconDark from "../assets/GithubIcon-Dark.svg";
-import gitHubIconLight from "../assets/GithubIcon-Light.svg";
 import { useMemo } from "react";
 import type { pageGroups } from "../types/types";
+import { GitHubLink } from "./GitHubLink";
 
 export const NavBar = () => {
   const sortedPages = useMemo(() => {
@@ -38,9 +37,7 @@ export const NavBar = () => {
           </Link>
         );
       })}
-      <Link to="https://github.com/dan71853/" style={{ marginLeft: "auto" }} >
-        <img src={window.matchMedia("(prefers-color-scheme: dark)").matches ? gitHubIconDark : gitHubIconLight} style={{ height:"80px"}} />
-      </Link>
+      <GitHubLink link="https://github.com/dan71853/" size="80px" />
     </div>
   );
 };
