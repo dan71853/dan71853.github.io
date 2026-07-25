@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import * as pages from "../pages/index";
 import sharkOne from "../assets/SharkOne.png";
+import gitHubIconDark from "../assets/GithubIcon-Dark.svg";
+import gitHubIconLight from "../assets/GithubIcon-Light.svg";
 import { useMemo } from "react";
 import type { pageGroups } from "../types/types";
 
@@ -20,11 +22,11 @@ export const NavBar = () => {
           <Link
             to={`/${groupName}`}
             key={`navLink${i}`}
-            style={{  alignContent:"center"}}
+            style={{ alignContent: "center" }}
             className="nav-bar-link"
           >
             <h2
-            className="nav-bar-text"
+              className="nav-bar-text"
               style={{
                 margin: "1rem",
                 // color: "var(--text-h)",
@@ -36,6 +38,9 @@ export const NavBar = () => {
           </Link>
         );
       })}
+      <Link to="https://github.com/dan71853/" style={{ marginLeft: "auto" }} >
+        <img src={window.matchMedia("(prefers-color-scheme: dark)").matches ? gitHubIconDark : gitHubIconLight} style={{ height:"80px"}} />
+      </Link>
     </div>
   );
 };
