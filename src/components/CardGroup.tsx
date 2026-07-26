@@ -3,8 +3,6 @@ import showMoreImg from "../assets/showMoreArrows.svg";
 import { useMemo } from "react";
 import type { cardGroupProps, cardProps } from "../types/types";
 
-const cardWidth = `${100 / 6}%`;
-
 const maxPriority = 9999;
 export const CardGroup = (props: cardGroupProps) => {
   const sortedPages = useMemo(() => {
@@ -16,8 +14,10 @@ export const CardGroup = (props: cardGroupProps) => {
   }, [props.pages]);
 
   return (
-    <div >
-      <Link className="category-title" to={`/${props.path}`} >{props.title}</Link>
+    <div>
+      <Link className="category-title" to={`/${props.path}`}>
+        {props.title}
+      </Link>
       <div
         style={{ display: "flex", flexWrap: "wrap" }}
         className="CardGroupDiv"
@@ -28,11 +28,7 @@ export const CardGroup = (props: cardGroupProps) => {
               <Link
                 to={`/${props.path}/${k}`}
                 key={`link${i}`}
-                className="card-group-link"
-                style={{
-                  width: cardWidth,
-                  height: cardWidth,
-                }}
+                className="card-group-link card-group-item"
               >
                 <Card {...v} grayScale={false} key={`card${i}`} />
               </Link>
@@ -41,10 +37,7 @@ export const CardGroup = (props: cardGroupProps) => {
         {props.limit !== undefined &&
           sortedPages.length > props.limit &&
           !props.wrap && (
-            <Link
-              to={`/${props.path}`}
-              style={{ width: cardWidth, height: cardWidth }}
-            >
+            <Link to={`/${props.path}`} className="card-group-item">
               <Card
                 {...Object.entries(props.pages)[props.limit][1]}
                 title={"Show More"}
