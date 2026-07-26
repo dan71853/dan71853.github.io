@@ -9,6 +9,7 @@ import Img06 from "./Img-06.jpg";
 import Img07 from "./Img-07.jpg";
 import Img08 from "./Img-08.jpg";
 import Img09 from "./Img-09.jpg";
+import Img10 from "./Img-10.jpg";
 
 import { GitHubLink } from "../../../components/GitHubLink";
 
@@ -86,6 +87,39 @@ export const page = () => {
         make any major improvements.
         <br />I believe this was a limitation of the LM2596S, however the RPi
         has additional regulation so this was not an issue.
+        <h2>PCB</h2>
+        The PCB was made using EasyEDA, There was only a minor typo and a
+        missing connection for a test pad. I soldered it myself with a hotplate
+        and it all went together perfectly.
+        <figure>
+          <img src={Img10} height={500} />
+          <img src={Img06} height={500} />
+          <figcaption>PCB</figcaption>
+        </figure>
+        I broke out a few extra GPIOs and added connectors for driving RGB LEDs
+        and some touch sensors. These sensors were to be used for decorating the
+        servo skull. I also added a Qwiic I2C connector as this is used by a lot
+        of Adafruit's modules. This was in case I need to add any extra I2C
+        devices later.
+        <h2>Final Assembly</h2>
+        I hand soldered the remaining through hole components and wired up the
+        rest of the connectors. I tried to use connectors where I could to make
+        it easier to maintain.
+        <br />
+        This was a good idea as I later found a problem with he switch wiring.
+        The power switch was disconnecting the ground wire, this worked great in
+        isolation However when the RPi was connected to the printer using the
+        USB, the current could flow through the ground of the cable and the RPi
+        wouldn't turn off. This was rewired so the switch interrupts the 24V and
+        the connectors design made this a lot easier to fix.
+        <figure>
+          <img src={Img01} height={500} />
+          <img src={Img05} height={500} />
+          <figcaption>Final Design</figcaption>
+        </figure>
+        Overall this project was a great success and I still use it with my
+        printer to this day. I plan to revisit this at some point to design the
+        servo skull decoration part.
       </div>
     </>
   );
