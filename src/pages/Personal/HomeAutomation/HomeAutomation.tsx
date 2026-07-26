@@ -7,6 +7,10 @@ import Img04 from "./Img-04.jpg";
 import Img05 from "./Img-05.jpg";
 import Img06 from "./Img-06.jpg";
 import Img07 from "./Img-07.jpg";
+import Img08 from "./Img-08.jpg";
+import Img09 from "./Img-09.jpg";
+import Img10 from "./Img-10.jpg";
+import Img11 from "./Img-11.jpg";
 
 import { GitHubLink } from "../../../components/GitHubLink";
 
@@ -25,7 +29,7 @@ export const page = () => {
         <br />I started with a basic temperature/humidity/pressure monitor.
         <h2>
           Environment Sensor
-          <GitHubLink link="https://github.com/dan71853/home-automation/blob/main/devices/env-node/README.md" />
+          <GitHubLink link="https://github.com/dan71853/home-automation/blob/main/devices/env-node" />
         </h2>
         For this device I used an ESP32-C3 as the MCU as these are quite cheap
         and have wifi.
@@ -49,7 +53,7 @@ export const page = () => {
         </figure>
         <h2>
           Oven Sensor
-          <GitHubLink link="https://github.com/dan71853/home-automation/blob/main/devices/oven_node/README.md" />
+          <GitHubLink link="https://github.com/dan71853/home-automation/blob/main/devices/oven_node" />
         </h2>
         This node is used to detect if the stove or oven has been left on. This
         node has two LDR light sensors and a passive infrared sensor (PIR). The
@@ -90,6 +94,51 @@ export const page = () => {
         may ditch ESPHome and move all the logic to the ESP32 to make it a bit
         more reliable and efficient. This has already caught me leaving the
         stove on a couple of times so its working as intended.
+        <h2>
+          Status Panel
+          <GitHubLink link="https://github.com/dan71853/home-automation/blob/main/devices/status_panel" />
+        </h2>
+        I wanted to make an Epaper based status panel that can display
+        information from Home Assistant. For example the temperature, humidity
+        and any sort of notification. I have a 7 colour Epaper from a previous
+        project, This was a live wallpaper and I wanted to upgrade this to show
+        a text box on top of the current image. However the difficulty for
+        hosting the images from Home Assistant and the lack of dynamic image
+        support from ESPHome made this a very difficult task.
+        <br /> I decided to instead get a new and smaller epaper that was just
+        for this status panel. I went with the WeAct 3.7" Epaper Display as ths
+        was a nice size. Here is some testing I was doing using the Adafruit
+        fonts.
+        <figure>
+          <img src={Img10} height={500} />
+          <figcaption>Font Testing</figcaption>
+        </figure>
+        This screen worked well, however I again ran into ESPHome issues. The
+        driver for this particular screen was not yet supported by ESPHome. I
+        debated making my own ESPHome component but I decided to remove ESPHome
+        and program the ESP directly to give me more control. I could then
+        connect to Home Assistant using MQTT.
+        <br />
+        Once I tested all components worked as I expected, I designed a PCB and
+        enclosure.
+        <figure>
+          <img src={Img11} height={500} />
+          <figcaption>Disassembled Status Panel</figcaption>
+        </figure>
+        Here all the components disassembled, This all slots together and is
+        fastened with 4 M3 screws. I really like how easy this is to assemble,
+        the way the case splits apart makes it easy to open.
+        <br />I went with a 1000mAH battery, by going into deep sleep and only
+        waking every 15min I was able to get around 5 weeks of battery life.
+        This is plenty and I can charge with the USB C port on the side.
+        <figure>
+          <img src={Img08} height={500} />
+          <img src={Img09} height={500} />
+          <figcaption>Final Status Panel Design</figcaption>
+        </figure>
+        Here is the assembled status panel, I really liked the design. All the
+        hardware is done, all that is left is to figure out what I want
+        displayed and finish the UI.
       </div>
     </>
   );
