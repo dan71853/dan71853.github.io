@@ -3,9 +3,12 @@ import img from "./thumbnail.jpg";
 import Img01 from "./Img-01.jpg";
 import Img02 from "./Img-02.jpg";
 import Img03 from "./Img-03.jpg";
-// import Img04 from "./Img-04.jpg";
-// import Img05 from "./Img-05.jpg";
-// import Img06 from "./Img-06.jpg";
+import Img04 from "./Img-04.jpg";
+import Img05 from "./Img-05.jpg";
+import Img06 from "./Img-06.jpg";
+import Img07 from "./Img-07.jpg";
+import Img08 from "./Img-08.jpg";
+import Img09 from "./Img-09.jpg";
 
 import { GitHubLink } from "../../../components/GitHubLink";
 
@@ -33,6 +36,7 @@ export const page = () => {
         to 5V that the RPi could uses. I also broke out a few GPIO and drove a
         24V LED with a MOSFET.
         <figure>
+          <img src={Img07} height={500} />
           <img src={Img01} height={500} />
           <figcaption>Final design</figcaption>
         </figure>
@@ -42,17 +46,46 @@ export const page = () => {
         The idea was to have this servo controller and observing my 3D printer.
         But due to time limitations I never finished designing the 3D skull.
         <h2>Camera</h2>
-        I had been using a USB webcam but this was very bulky and difficult to mount.
-        So I acquired a RPi camera module that uses an FFC to connect directly to the RPi.
-        <br/>
-        I got a camera with a 130° fisheye lense, this would allow me to move the camera closer to the printer while still getting a good view.
-        <br/>
-Here is the camera and I am testing it by looking through it with Octoprint.
-         <figure>
+        I had been using a USB webcam but this was very bulky and difficult to
+        mount. So I acquired a RPi camera module that uses an FFC to connect
+        directly to the RPi.
+        <br />
+        I got a camera with a 130° fisheye lense, this would allow me to move
+        the camera closer to the printer while still getting a good view.
+        <br />
+        Here is the camera and I am testing it by looking through it with
+        Octoprint.
+        <figure>
           <img src={Img02} height={500} />
           <img src={Img03} height={500} />
           <figcaption>Camera</figcaption>
         </figure>
+        <h2>Spotlight</h2>A 24V LED was used to illuminate the printer. I found
+        that the LENs on the LED was enough to illuminate the print bed.
+        <figure>
+          <img src={Img04} height={300} />
+          <figcaption>Led</figcaption>
+        </figure>
+        <h2>Power Supply</h2>
+        The Ender 3 uses a 24V power supply, there were spare screw terminals so
+        I soldered up an XT60 connector.
+        <br />I decided to go with a LM2596S as it could supply the 3A required,
+        in hindsight I should have gone with something a bit more modern but
+        this has worked well. This steps the voltage down from 24V to 5V@3A.
+        This is more than enough to supply the RPi and the LED. Here is the
+        final design after soldering, I used solder paste and a hot plate and
+        noticed some shiny balls left over between the pins. I was not able to
+        remove thee but they have not caused any problems.
+        <figure>
+          <img src={Img08} height={500} />
+          <img src={Img09} height={500} />
+          <figcaption>Buck Converter</figcaption>
+        </figure>
+        I was not too happy with the noise on the 5V rail, I was measuring
+        around 200mA of ripple. I attempted to filter it a bit more but did not
+        make any major improvements.
+        <br />I believe this was a limitation of the LM2596S, however the RPi
+        has additional regulation so this was not an issue.
       </div>
     </>
   );

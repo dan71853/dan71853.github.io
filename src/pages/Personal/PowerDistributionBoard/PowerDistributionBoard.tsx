@@ -71,4 +71,4 @@ export const page = () => {
 export const title = "12V Power Distribution Board";
 export const thumb = img;
 
-export const priority = 1;
+export const priority = 4;
