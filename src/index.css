@@ -149,3 +149,28 @@ code {
 .category-title:hover {
   color:var(--text-hover);
 }
+
+
+.CardGroupDiv {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-group-item {
+  width: calc(100% / 6);
+  height: calc(100% / 6);
+}
+
+@media (max-width: 999px) {
+  .card-group-item {
+    width: calc(100% / 4);
+    height: calc(100% / 4);
+  }
+}
+
+@media (max-width: 799px) {
+  .card-group-item {
+    width: calc(100% / 2);
+    height: calc(100% / 2);
+  }
+}
