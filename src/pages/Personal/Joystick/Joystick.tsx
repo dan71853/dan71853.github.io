@@ -37,11 +37,16 @@ import Img33 from "./Img-33.jpg";
 import Vid01 from "./Vid-01.mp4";
 import Vid02 from "./Vid-02.mp4";
 
+import { GitHubLink } from "../../../components/GitHubLink";
+
 export const page = () => {
   return (
     <>
       <div style={{ textAlign: "left" }}>
-        <h1>Joystick</h1>
+        <h1>
+          Joystick{" "}
+          <GitHubLink link="https://github.com/dan71853/MyProjects/tree/main/LargeProjects/Joysticks" />
+        </h1>
         This is one of my larger projects, I wanted to design a joystick for a
         space flight simulator game.
         <br />
@@ -170,10 +175,10 @@ export const page = () => {
         </figure>
         <br />
         <br />
-        <h2>More Testing</h2>I started doing some testing on imbedding a nut into
-        a 3D print and testing an LCD screen and LED light strip on a bread
+        <h2>More Testing</h2>I started doing some testing on imbedding a nut
+        into a 3D print and testing an LCD screen and LED light strip on a bread
         board.
-       <figure>
+        <figure>
           <img src={Img28} height={500} />
           <img src={Img29} height={500} />
           <figcaption>Chair mount</figcaption>
@@ -182,18 +187,16 @@ export const page = () => {
         resumed the print. It took a bit of tuning but I managed to seamlessly
         embed a nut. <br />
         <br />
-
-              <figure>
+        <figure>
           <img src={Img30} height={500} />
           <img src={Img31} height={500} />
         </figure>
         <figure>
-                 <video height={500} controls muted>
+          <video height={500} controls muted>
             <source src={Vid02} type="video/mp4" />
           </video>
           <figcaption>LED and LCD testing</figcaption>
         </figure>
-    
         The next test was getting the LCD and LED strip working. I salvaged the
         LCD of an old radio, it required a bit of reverse engineering to map the
         inputs to the seven segment display outputs. I am controlling the LED
@@ -220,8 +223,6 @@ export const page = () => {
           <img src={Img33} height={500} />
           <figcaption>Z Axis Clamp</figcaption>
         </figure>
-      
-      
         {/* The files can be found <a href = "https://github.com/dan71853/MyProjects/tree/main/SmallProjects/PhoneChargerHolder">here</a>. */}
       </div>
     </>
