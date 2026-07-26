@@ -232,4 +232,4 @@ export const page = () => {
 export const title = "Joystick";
 export const thumb = img;
 
-export const priority = 1;
+export const priority = 8;
