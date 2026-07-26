@@ -3,6 +3,7 @@ import * as pages from "../pages/index";
 import sharkOne from "../assets/SharkOne.png";
 import { useMemo } from "react";
 import type { pageGroups } from "../types/types";
+import { GitHubLink } from "./GitHubLink";
 
 export const NavBar = () => {
   const sortedPages = useMemo(() => {
@@ -20,11 +21,11 @@ export const NavBar = () => {
           <Link
             to={`/${groupName}`}
             key={`navLink${i}`}
-            style={{  alignContent:"center"}}
+            style={{ alignContent: "center" }}
             className="nav-bar-link"
           >
             <h2
-            className="nav-bar-text"
+              className="nav-bar-text"
               style={{
                 margin: "1rem",
                 // color: "var(--text-h)",
@@ -36,6 +37,7 @@ export const NavBar = () => {
           </Link>
         );
       })}
+      <GitHubLink link="https://github.com/dan71853/" size="80px" />
     </div>
   );
 };

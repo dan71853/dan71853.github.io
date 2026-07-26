@@ -30,3 +30,8 @@ export interface PageGroup {
 export interface pageGroups{
   [key:string]: PageGroup
 }
+
+export interface gitHubIconProps {
+  link:string,
+  size?:string,
+}
