@@ -34,12 +34,13 @@ export const CardGroup = (props: cardGroupProps) => {
               </Link>
             );
         })}
+        
         {props.limit !== undefined &&
           sortedPages.length > props.limit &&
           !props.wrap && (
             <Link to={`/${props.path}`} className="card-group-link card-group-item">
               <Card
-                {...Object.entries(props.pages)[props.limit][1]}
+                {...sortedPages[props.limit][1]}
                 title={"Show More"}
                 grayScale={true}
               />
